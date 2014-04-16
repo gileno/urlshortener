@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="content-head is-center">URL Shortener Sample.</h2>
+
+<div class="pure-g">
+    <div class="l-box-lrg pure-u-1 pure-u-med-2-5">
+        <form class="pure-form pure-form-stacked" method="post">
+            {% csrf_token %}
+            <fieldset>
+                {% for field in form %}
+                {{ field.label_tag }}
+                {{ field }}
+                {{ field.errors }}
+                {% endfor %}
+
+                <button type="submit" class="pure-button">Go</button>
+            </fieldset>
+        </form>
+    </div>
+
+    <div class="l-box-lrg pure-u-1 pure-u-med-3-5">
+        <h4>About</h4>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.
+        </p>
+    </div>
+</div>
+{% endblock %}
